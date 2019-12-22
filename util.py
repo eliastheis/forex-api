@@ -4,8 +4,8 @@ import traceback
 import sys
 import threading
 
-sql = 0
-db = 0
+sql = None
+db = None
 
 def p(prefix, text): # nice print function
 	t = getTime()
