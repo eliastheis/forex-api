@@ -1,4 +1,6 @@
 import util
+import csv
+import requests
 
 # connect to SQL
 host, user, password, database = util.getSqlConfig()
