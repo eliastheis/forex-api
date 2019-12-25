@@ -43,7 +43,7 @@ plt.ion()
 data = []
 
 # read files
-for file in ['2019-now.csv']:#files:
+for file in files:
 	with open('data/' + file) as f:
 		csv_reader = csv.reader(f)
 		next(csv_reader)
