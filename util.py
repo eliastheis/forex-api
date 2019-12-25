@@ -62,11 +62,16 @@ def disconnectFromSQL():
 def executeSQL(cmd):
 	global sql
 	global db
-	sql.execute(cmd)
-	if "select" in cmd.lower() or 'show' in cmd.lower():
-		return sql.fetchall()
-	else:
-		db.commit()
+	try:
+		sql.execute(cmd)
+		if "select" in cmd.lower() or 'show' in cmd.lower():
+			return sql.fetchall()
+		else:
+			db.commit()
+	except Exception as e:
+		print(e)
+		print('CMD:', cmd)
+		exit()
 
 def executeSQLMulti(cmd):
 	global sql
