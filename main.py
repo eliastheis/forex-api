@@ -1,6 +1,6 @@
 import util
 import csv
-import os
+from os import listdir
 from matplotlib import pyplot as plt
 from datetime import datetime
 import time
@@ -36,7 +36,7 @@ host, user, password, database = util.getSqlConfig()
 util.connectToSQL(host, user, password, database)
 
 # get files in data-path
-files = os.listdir('data')
+files = listdir('data')
 files = sorted(files)
 
 plt.ion()
