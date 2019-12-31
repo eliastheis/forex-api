@@ -1,8 +1,5 @@
 import mysql.connector
 from time import strftime
-import traceback
-import sys
-import threading
 
 sql = None
 db = None
@@ -38,7 +35,7 @@ def getSqlConfig():
 		p("ERROR", "something went wrong with the sql.con")
 		print(e)
 		p("ERROR", "exiting...")
-		sys.exit()
+		exit()
 	return host, user, password, database
 
 def connectToSQL(h, u, pa, d):
@@ -52,7 +49,7 @@ def connectToSQL(h, u, pa, d):
 		p("ERROR", "something went wrong with the sql connection: " + h + ", " + u + ", " + pa + ", " + d)
 		print(e)
 		p("ERROR", "exiting...")
-		sys.exit()
+		exit()
 	return sql
 
 def disconnectFromSQL():
