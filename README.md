@@ -2,6 +2,7 @@
 This "API" loads the historical prices from CSV-files downloaded at dukascopy.com.
 After this, it gets the price from the live price API fcsapi.com and captures it.
 All this data will be saved in SQL. So actually it is no API, but you could easily change it to an API with flask.
+This repository is based on [this repository](https://github.com/eliastheis/forex-data-collector).
 
 ## Dependecies
 * mysql-connector (install via pip: 'pip install mysql-connector')
