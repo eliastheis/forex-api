@@ -1,7 +1,6 @@
 import util
 import csv
 from os import listdir
-from matplotlib import pyplot as plt
 from datetime import datetime
 import time
 import pytz
@@ -40,7 +39,6 @@ util.connectToSQL(host, user, password, database)
 files = listdir('data')
 files = sorted(files)
 
-plt.ion()
 data = []
 
 # read files
