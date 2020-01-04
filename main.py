@@ -31,6 +31,7 @@ def getPrice(symbol, old_price):
 		print('## EXCEPTION ##')
 		print(e)
 		return old_price
+
 # connect to SQL
 host, user, password, database = util.getSqlConfig()
 util.connectToSQL(host, user, password, database)
@@ -79,19 +80,20 @@ counter = 0
 limit = 10000
 cmd = ""
 base = "INSERT INTO " + symbol + " (`timestamp`, `open`, `high`, `low`, `close`, `volume`) VALUES "
-all_timestamps = []
+#all_timestamps = []
+latest_timestamp = 0
 tmp = False
 for i in range(len(data)):
 	d = data[i]
-	if d[0] not in all_timestamps:
-		all_timestamps.append(d[0])
+	if d[0] > latest_timestamp:
+		latest_timestamp = d[0]
 		cmd += "('" + str(d[0]) + "', '" + str(d[1]) + "', '" + str(d[2]) + "', '" + str(d[3]) + "', '" + str(d[4]) + "', '" + str(d[5]) + "'),"
 		counter += 1
 		if counter == limit:
 			counter = 0
 			util.executeSQL(base + rreplace(cmd, ',', ';', 1))
 			cmd = ""
-			all_timestamps = all_timestamps[len(all_timestamps)-87000:]
+			#all_timestamps = all_timestamps[len(all_timestamps)-87000:]
 	if round((100*i)/len(data)) != current:
 		current = round(100*i/len(data))
 		util.p('LOADS', str(current) + '%')
