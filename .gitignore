@@ -18,3 +18,5 @@ data/2016-2017.csv
 data/2017-2018.csv
 data/2018-2019.csv
 data/2019-2020.csv
+*.pyc
+__pycache__/util.cpython-37.pyc
